@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<bean id="ear.context" class="org.springframework.context.support.ClassPathXmlApplicationContext">
+    <constructor-arg>
+        <list>
+            <value>beans.xml</value>
+        </list>
+    </constructor-arg>
+</bean>

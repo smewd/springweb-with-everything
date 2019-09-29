@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://maven.apache.org/POM/4.0.0
+        http://maven.apache.org/xsd/maven-4.0.0.xsd
+">
+    <parent>
+        <groupId>com.smood.spring-parent-context</groupId>
+        <artifactId>base</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ear</artifactId>
+    <packaging>ear</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.smood.spring-parent-context</groupId>
+            <artifactId>web1</artifactId>
+            <type>war</type>
+            <version>${project.parent.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.smood.spring-parent-context</groupId>
+            <artifactId>web2</artifactId>
+            <type>war</type>
+            <version>${project.parent.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <version>6</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <skinnyWars>true</skinnyWars>
+                    <applicationName>ear</applicationName>
+                    <modules>
+                        <webModule>
+                            <groupId>com.smood.spring-parent-context</groupId>
+                            <artifactId>web1</artifactId>
+                            <contextRoot>web1</contextRoot>
+                        </webModule>
+                        <webModule>
+                            <groupId>com.smood.spring-parent-context</groupId>
+                            <artifactId>web2</artifactId>
+                            <contextRoot>web2</contextRoot>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
