@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 @Component
 public class ParentBean
 {
+	public static final String PARENT_CONTEXT_ID = "ear.context";
 	private static final Logger LOGGER = Logger.getLogger(ParentBean.class.getName());
 
 	private final int randomValue;

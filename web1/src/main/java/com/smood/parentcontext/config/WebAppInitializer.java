@@ -2,6 +2,7 @@ package com.smood.parentcontext.config;
 
 
 
+import com.smood.parentcontext.beans.ParentBean;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.ContextLoaderListener;
@@ -17,7 +18,7 @@ public class WebAppInitializer implements WebApplicationInitializer
 {
 	@Override
 	public void onStartup(ServletContext servletContext) {
-		servletContext.setInitParameter(ContextLoader.LOCATOR_FACTORY_KEY_PARAM, "serviceBeanFactory");
+		servletContext.setInitParameter(ContextLoader.LOCATOR_FACTORY_KEY_PARAM, ParentBean.PARENT_CONTEXT_ID);
 
 		// Create the 'root' Spring application context
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
