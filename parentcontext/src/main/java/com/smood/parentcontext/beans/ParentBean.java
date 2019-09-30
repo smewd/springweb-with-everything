@@ -38,7 +38,7 @@ public class ParentBean
 		LOGGER.setLevel(Level.ALL);
 		if (LOGGER.isLoggable(Level.INFO))
 		{
-			LOGGER.info(String.format("%n%nKlar med uppstart: %s%nhashCode: %s%n%n",
+			LOGGER.info(String.format("%n%n%nKlar med uppstart: %s%nhashCode: %s%n%n",
 					LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME),
 					hashCode()));
 		}
