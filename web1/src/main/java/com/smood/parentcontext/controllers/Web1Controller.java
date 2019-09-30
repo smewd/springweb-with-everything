@@ -1,12 +1,16 @@
 package com.smood.parentcontext.controllers;
 
 
+
 import com.smood.parentcontext.beans.ParentBean;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 
 
 
@@ -25,10 +29,12 @@ public class Web1Controller
 
 
 	@GetMapping("/call")
-	public String call()
+	@ResponseBody
+	public Map<String, Object> call()
 	{
-		return String.format("LocalDateTime in web1 is %s%nParent bean säger: %s",
-				LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME),
-				parentBean.getName());
+		Map<String, Object> result = new HashMap<>();
+		result.put("localDateTime", LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+		result.put("parentValues", parentBean.getValues());
+		return result;
 	}
 }

@@ -1,13 +1,18 @@
 package com.smood.parentcontext.beans;
 
 
+
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 
 @Component
@@ -15,24 +20,38 @@ public class ParentBean
 {
 	private static final Logger LOGGER = Logger.getLogger(ParentBean.class.getName());
 
+	private final int randomValue;
+
+
+
+	public ParentBean()
+	{
+		this.randomValue = new Random(System.currentTimeMillis()).nextInt();
+	}
+
 
 
 	@PostConstruct
 	public void logStartup()
 	{
-		if (LOGGER.isLoggable(Level.INFO)) {
+		Level level = LOGGER.getLevel();
+		LOGGER.setLevel(Level.ALL);
+		if (LOGGER.isLoggable(Level.INFO))
+		{
 			LOGGER.info(String.format("%n%nKlar med uppstart: %s%nhashCode: %s%n%n",
 					LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME),
 					hashCode()));
 		}
+		LOGGER.setLevel(level);
 	}
 
 
 
-	public String getName()
+	public Map<String, Object> getValues()
 	{
-		return String.format("ParentBean - hashCode: %s, date/time: %s",
-				hashCode(),
-				LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+		Map<String, Object> result = new HashMap<>();
+		result.put("hashCode", hashCode());
+		result.put("randomValue", randomValue);
+		return result;
 	}
 }
