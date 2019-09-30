@@ -1,4 +1,4 @@
-package controllers;
+package com.smood.parentcontext.controllers;
 
 
 
@@ -11,12 +11,12 @@ import java.time.format.DateTimeFormatter;
 
 
 @RestController
-public class Web1Controller
+public class Web2Controller
 {
 	@GetMapping("/call")
 	public String call()
 	{
-		return String.format("LocalDateTime in web1 is %s",
+		return String.format("LocalDateTime in web2 is %s",
 				LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
 	}
 }
