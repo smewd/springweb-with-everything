@@ -24,12 +24,24 @@
             <version>${project.parent.version}</version>
             <scope>runtime</scope>
         </dependency>
+       <dependency>
+            <groupId>com.smood.spring-parent-context</groupId>
+            <artifactId>web1</artifactId>
+            <type>pom</type>
+            <version>${project.parent.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.smood.spring-parent-context</groupId>
             <artifactId>web2</artifactId>
             <type>war</type>
             <version>${project.parent.version}</version>
             <scope>runtime</scope>
+        </dependency>
+       <dependency>
+            <groupId>com.smood.spring-parent-context</groupId>
+            <artifactId>web2</artifactId>
+            <type>pom</type>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 
