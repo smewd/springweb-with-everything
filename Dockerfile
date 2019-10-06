@@ -2,10 +2,10 @@
 # Websphere Liberty - funkar inte med ear-applikationen
 ###################
 
-FROM open-liberty:javaee8
-COPY ear/target/multicontext.ear /config/dropins/
-COPY dockerfiles/server.xml /config/
-EXPOSE 9080
+# FROM open-liberty:javaee8
+# COPY ear/target/multicontext.ear /config/dropins/
+# COPY dockerfiles/server.xml /config/
+# EXPOSE 9080
 
 
 
@@ -13,9 +13,9 @@ EXPOSE 9080
 # Wildfly
 #########
 
-# FROM jboss/wildfly
-# ADD ear/target/multicontext.ear /opt/jboss/wildfly/standalone/deployments/
-# EXPOSE 8080
+FROM jboss/wildfly
+ADD ear/target/multicontext.ear /opt/jboss/wildfly/standalone/deployments/
+EXPOSE 8080
 
 
 
