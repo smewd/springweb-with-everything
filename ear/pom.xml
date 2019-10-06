@@ -7,7 +7,7 @@
         http://maven.apache.org/xsd/maven-4.0.0.xsd
 ">
     <parent>
-        <groupId>com.smood.spring-parent-context</groupId>
+        <groupId>com.smood.multicontexts</groupId>
         <artifactId>base</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -18,30 +18,24 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.smood.spring-parent-context</groupId>
+            <groupId>com.smood.multicontexts</groupId>
             <artifactId>web1</artifactId>
             <type>war</type>
-            <version>${project.parent.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-       <dependency>
-            <groupId>com.smood.spring-parent-context</groupId>
-            <artifactId>web1</artifactId>
-            <type>pom</type>
-            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.smood.spring-parent-context</groupId>
+            <groupId>com.smood.multicontexts</groupId>
+            <artifactId>web1</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.smood.multicontexts</groupId>
             <artifactId>web2</artifactId>
             <type>war</type>
-            <version>${project.parent.version}</version>
-            <scope>runtime</scope>
         </dependency>
-       <dependency>
-            <groupId>com.smood.spring-parent-context</groupId>
+        <dependency>
+            <groupId>com.smood.multicontexts</groupId>
             <artifactId>web2</artifactId>
             <type>pom</type>
-            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 
@@ -50,20 +44,22 @@
             <plugin>
                 <artifactId>maven-ear-plugin</artifactId>
                 <configuration>
-                    <version>6</version>
-                    <defaultLibBundleDir>lib</defaultLibBundleDir>
                     <skinnyWars>true</skinnyWars>
-                    <applicationName>ear</applicationName>
+                    <defaultLibBundleDir>lib/</defaultLibBundleDir>
+                    <generateModuleId>true</generateModuleId>
+                    <finalName>multicontext</finalName>
                     <modules>
                         <webModule>
-                            <groupId>com.smood.spring-parent-context</groupId>
+                            <groupId>com.smood.multicontexts</groupId>
                             <artifactId>web1</artifactId>
-                            <contextRoot>web1</contextRoot>
+                            <contextRoot>/web1</contextRoot>
+                            <bundleFileName>web1.war</bundleFileName>
                         </webModule>
                         <webModule>
-                            <groupId>com.smood.spring-parent-context</groupId>
+                            <groupId>com.smood.multicontexts</groupId>
                             <artifactId>web2</artifactId>
-                            <contextRoot>web2</contextRoot>
+                            <contextRoot>/web2</contextRoot>
+                            <bundleFileName>web2.war</bundleFileName>
                         </webModule>
                     </modules>
                 </configuration>

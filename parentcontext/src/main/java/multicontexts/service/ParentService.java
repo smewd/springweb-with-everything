@@ -1,16 +1,18 @@
-package com.interface21.sample.multiplecontexts.service;
+package multicontexts.service;
 
 
 
-import javax.annotation.PostConstruct;
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
 
-public class SampleServiceImpl implements SampleService
+@Service
+public class ParentService
 {
-	public SampleServiceImpl()
+	public ParentService()
 	{
 		System.out.println(String.format("%n%n%n%s: Uppstart av %s klar.%n%n%n",
 				LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME),
@@ -23,4 +25,5 @@ public class SampleServiceImpl implements SampleService
 	{
 		return "Hello from " + from;
 	}
+
 }

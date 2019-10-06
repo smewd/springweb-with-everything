@@ -7,7 +7,7 @@
 		http://maven.apache.org/maven-v4_0_0.xsd
 ">
     <parent>
-        <groupId>com.smood.spring-parent-context</groupId>
+        <groupId>com.smood.multicontexts</groupId>
         <artifactId>base</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -18,7 +18,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.smood.spring-parent-context</groupId>
+            <groupId>com.smood.multicontexts</groupId>
             <artifactId>parentcontext</artifactId>
         </dependency>
         <dependency>
