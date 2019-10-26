@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<Context path="/web/app" docBase="${CATALINA_HOME}/deploy/web1.war"/>

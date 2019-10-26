@@ -1,28 +1,6 @@
-###################
-# Websphere Liberty - funkar inte med ear-applikationen
-###################
+FROM tomcat:9.0.27-jdk8-adoptopenjdk-openj9
 
-# FROM open-liberty:javaee8
-# COPY ear/target/multicontext.ear /config/dropins/
-# COPY dockerfiles/server.xml /config/
-# EXPOSE 9080
+COPY web1/target/web1-1.0-SNAPSHOT.war ${CATALINA_HOME}/deploy/web1.war
+COPY dockerfiles/server.xml ${CATALINA_HOME}/conf
 
-
-
-#########
-# Wildfly
-#########
-
-FROM jboss/wildfly
-ADD ear/target/multicontext.ear /opt/jboss/wildfly/standalone/deployments/
 EXPOSE 8080
-
-
-
-#######
-# TOMEE - funkar inte med ear-applikationen
-#######
-
-# FROM tomee:8-jre-7.1.0-plus
-# ADD ear/target/multicontext.ear /usr/local/tomee/webapps/
-# EXPOSE 8080
