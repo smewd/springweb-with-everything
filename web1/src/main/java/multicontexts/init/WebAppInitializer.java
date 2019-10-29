@@ -3,6 +3,7 @@ package multicontexts.init;
 
 
 import lombok.NoArgsConstructor;
+import multicontexts.filter.DummyFilter;
 import multicontexts.servlet.DummyServlet;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +14,13 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
+import java.util.EnumSet;
+
+import static javax.servlet.DispatcherType.FORWARD;
+import static javax.servlet.DispatcherType.REQUEST;
 
 
 
@@ -27,6 +33,7 @@ public class WebAppInitializer implements WebApplicationInitializer
 		initSpringContext(servletContext);
 		initDispatcherServlet(servletContext);
 		initServlets(servletContext);
+		initFilters(servletContext);
 	}
 
 
@@ -61,6 +68,15 @@ public class WebAppInitializer implements WebApplicationInitializer
 		ServletRegistration.Dynamic servletReg = servletContext.addServlet("dummyServlet", dummyServlet);
 		servletReg.setLoadOnStartup(1);
 		servletReg.addMapping("/dummy/servlet");
+	}
+
+
+
+	private void initFilters(ServletContext servletContext)
+	{
+		DummyFilter filter = new DummyFilter();
+		FilterRegistration.Dynamic filterReg = servletContext.addFilter("dummyFilter", filter);
+		filterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST, FORWARD), true,"/");
 	}
 
 
