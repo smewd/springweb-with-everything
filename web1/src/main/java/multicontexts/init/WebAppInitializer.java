@@ -2,6 +2,8 @@ package multicontexts.init;
 
 
 
+import lombok.NoArgsConstructor;
+import multicontexts.servlet.DummyServlet;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
@@ -24,6 +26,7 @@ public class WebAppInitializer implements WebApplicationInitializer
 		servletContext.setInitParameter(ContextLoader.LOCATOR_FACTORY_KEY_PARAM, "ear.context");
 		initSpringContext(servletContext);
 		initDispatcherServlet(servletContext);
+		initServlets(servletContext);
 	}
 
 
@@ -43,7 +46,6 @@ public class WebAppInitializer implements WebApplicationInitializer
 	{
 		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 		context.register(DispatcherServletConfig.class);
-		context.setServletContext(servletContext);
 
 		ServletRegistration.Dynamic dispatcherServlet = servletContext.addServlet("dispatcher",
 				new DispatcherServlet(context));
@@ -53,17 +55,29 @@ public class WebAppInitializer implements WebApplicationInitializer
 
 
 
+	private void initServlets(ServletContext servletContext)
+	{
+		DummyServlet dummyServlet = new DummyServlet();
+		ServletRegistration.Dynamic servletReg = servletContext.addServlet("dummyServlet", dummyServlet);
+		servletReg.setLoadOnStartup(1);
+		servletReg.addMapping("/dummy/servlet");
+	}
+
+
+
+	@NoArgsConstructor
 	@Configuration
-	static class SpringContextConfig
+	private static class SpringContextConfig
 	{
 	}
 
+	@NoArgsConstructor
 	@Configuration
 	@EnableWebMvc
 	@ComponentScan(basePackageClasses = {
 			multicontexts.web.FirstController.class,
 	})
-	static class DispatcherServletConfig
+	private static class DispatcherServletConfig
 	{
 	}
 }
