@@ -20,7 +20,6 @@ public class FirstController
 	public FirstController(ParentService service)
 	{
 		this.service = service;
-		System.out.println("\n\nFIRSTCONTROLLER\n\n");
 	}
 
 

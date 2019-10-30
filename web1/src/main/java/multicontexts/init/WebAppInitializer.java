@@ -5,6 +5,7 @@ package multicontexts.init;
 import lombok.NoArgsConstructor;
 import multicontexts.filter.DummyFilter;
 import multicontexts.servlet.DummyServlet;
+import net.sourceforge.stripes.controller.StripesFilter;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
@@ -26,6 +27,10 @@ import static javax.servlet.DispatcherType.REQUEST;
 
 public class WebAppInitializer implements WebApplicationInitializer
 {
+	private static final String STRIPES_DISPATCHER_SERVLETNAME = "StripesDispatcher";
+
+
+
 	@Override
 	public void onStartup(ServletContext servletContext)
 	{
@@ -64,6 +69,12 @@ public class WebAppInitializer implements WebApplicationInitializer
 
 	private void initServlets(ServletContext servletContext)
 	{
+		net.sourceforge.stripes.controller.DispatcherServlet dispatcherServlet = new net.sourceforge.stripes.controller.DispatcherServlet();
+		ServletRegistration.Dynamic stripesServletReg = servletContext.addServlet(STRIPES_DISPATCHER_SERVLETNAME,
+				dispatcherServlet);
+		stripesServletReg.setLoadOnStartup(1);
+		stripesServletReg.addMapping("*.action");
+
 		DummyServlet dummyServlet = new DummyServlet();
 		ServletRegistration.Dynamic servletReg = servletContext.addServlet("dummyServlet", dummyServlet);
 		servletReg.setLoadOnStartup(1);
@@ -74,9 +85,16 @@ public class WebAppInitializer implements WebApplicationInitializer
 
 	private void initFilters(ServletContext servletContext)
 	{
-		DummyFilter filter = new DummyFilter();
-		FilterRegistration.Dynamic filterReg = servletContext.addFilter("dummyFilter", filter);
-		filterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST, FORWARD), true,"/");
+		StripesFilter stripesFilter = new StripesFilter();
+		FilterRegistration.Dynamic stripesFilterReg = servletContext.addFilter("StripesFilter", stripesFilter);
+		stripesFilterReg.setInitParameter("Interceptor.Classes", net.sourceforge.stripes.integration.spring.SpringInterceptor.class.getCanonicalName());
+		stripesFilterReg.setInitParameter("ActionResolver.Packages", multicontexts.stripes.PackageMarker.class.getPackage().getName());
+		stripesFilterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST), true, "*.action");
+		stripesFilterReg.addMappingForServletNames(EnumSet.of(REQUEST), true, STRIPES_DISPATCHER_SERVLETNAME);
+
+		DummyFilter dummyFilter = new DummyFilter();
+		FilterRegistration.Dynamic dummyFilterReg = servletContext.addFilter("dummyFilter", dummyFilter);
+		dummyFilterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST, FORWARD), true, "/");
 	}
 
 
@@ -86,6 +104,8 @@ public class WebAppInitializer implements WebApplicationInitializer
 	private static class SpringContextConfig
 	{
 	}
+
+
 
 	@NoArgsConstructor
 	@Configuration
