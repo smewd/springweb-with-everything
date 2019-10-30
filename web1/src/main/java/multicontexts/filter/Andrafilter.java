@@ -9,11 +9,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 
 
-public class DummyFilter implements Filter
+public class Andrafilter implements Filter
 {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
 			throws IOException, ServletException
@@ -22,7 +21,7 @@ public class DummyFilter implements Filter
 		filterChain.doFilter(request, capturingResponseWrapper);
 
 		String content = capturingResponseWrapper.getCaptureAsString();
-		String replacedContent = String.format("Före - %s - efter", content);
+		String replacedContent = String.format("Andra - %s", content);
 
 		response.setContentLength(replacedContent.length());
 		response.getWriter().write(replacedContent);
