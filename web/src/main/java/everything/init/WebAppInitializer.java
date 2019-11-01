@@ -1,7 +1,8 @@
-package multicontexts.init;
+package everything.init;
 
 
 
+import everything.web.DummyController;
 import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -70,7 +71,7 @@ public class WebAppInitializer implements WebApplicationInitializer
 	@Configuration
 	@EnableWebMvc
 	@ComponentScan(basePackageClasses = {
-			multicontexts.web.FirstController.class,
+			DummyController.class,
 	})
 	private static class DispatcherServletConfig
 	{

@@ -1,4 +1,4 @@
-package multicontexts.servlet;
+package everything.servlet;
 
 
 
@@ -20,6 +20,6 @@ public class DummyServlet extends HttpServlet
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException
 	{
-		resp.getOutputStream().print("Hejsan");
+		resp.getOutputStream().print("Dummy Servlet says hello!");
 	}
 }

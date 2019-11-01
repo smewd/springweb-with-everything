@@ -1,20 +1,20 @@
-package multicontexts.init;
+package everything.init;
 
 
 
 import lombok.RequiredArgsConstructor;
-import multicontexts.servlet.DummyServlet;
+import everything.servlet.DummyServlet;
 import net.sourceforge.stripes.controller.DispatcherServlet;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
-import static multicontexts.init.FiltersConfig.STRIPES_DISPATCHER_SERVLETNAME;
+import static everything.init.FiltersConfig.STRIPES_DISPATCHER_SERVLETNAME;
 
 
 
 @RequiredArgsConstructor
-public class ServletsConfig
+class ServletsConfig
 {
 	private final ServletContext servletContext;
 

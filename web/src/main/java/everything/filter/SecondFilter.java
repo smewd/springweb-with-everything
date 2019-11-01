@@ -1,4 +1,4 @@
-package multicontexts.filter;
+package everything.filter;
 
 
 
@@ -9,11 +9,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 
 
-public class Forstafilter implements Filter
+public class SecondFilter implements Filter
 {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
 			throws IOException, ServletException
@@ -22,7 +21,7 @@ public class Forstafilter implements Filter
 		filterChain.doFilter(request, capturingResponseWrapper);
 
 		String content = capturingResponseWrapper.getCaptureAsString();
-		String replacedContent = String.format("Första - %s", content);
+		String replacedContent = String.format("Andra - %s", content);
 
 		response.setContentLength(replacedContent.length());
 		response.getWriter().write(replacedContent);

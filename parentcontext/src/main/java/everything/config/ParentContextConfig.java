@@ -1,4 +1,4 @@
-package multicontexts.config;
+package everything.config;
 
 
 
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
-@ComponentScan(basePackageClasses = multicontexts.service.ParentService.class)
+@ComponentScan(basePackageClasses = everything.service.ParentService.class)
 public class ParentContextConfig
 {
 }

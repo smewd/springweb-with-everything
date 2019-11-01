@@ -1,4 +1,4 @@
-package multicontexts.stripes;
+package everything.stripes;
 
 
 

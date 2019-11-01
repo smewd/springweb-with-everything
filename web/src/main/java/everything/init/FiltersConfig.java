@@ -1,10 +1,10 @@
-package multicontexts.init;
+package everything.init;
 
 
 
 import lombok.RequiredArgsConstructor;
-import multicontexts.filter.Forstafilter;
-import multicontexts.filter.Andrafilter;
+import everything.filter.FirstFilter;
+import everything.filter.SecondFilter;
 import net.sourceforge.stripes.controller.StripesFilter;
 
 import javax.servlet.FilterRegistration;
@@ -39,7 +39,7 @@ class FiltersConfig
 		StripesFilter filter = new StripesFilter();
 		FilterRegistration.Dynamic filterReg = servletContext.addFilter("StripesFilter", filter);
 		filterReg.setInitParameter("Interceptor.Classes", net.sourceforge.stripes.integration.spring.SpringInterceptor.class.getCanonicalName());
-		filterReg.setInitParameter("ActionResolver.Packages", multicontexts.stripes.PackageMarker.class.getPackage().getName());
+		filterReg.setInitParameter("ActionResolver.Packages", everything.stripes.PackageMarker.class.getPackage().getName());
 		filterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST), true, "*.action");
 		filterReg.addMappingForServletNames(EnumSet.of(REQUEST), true, STRIPES_DISPATCHER_SERVLETNAME);
 	}
@@ -48,7 +48,7 @@ class FiltersConfig
 
 	private void initForstafilter()
 	{
-		Forstafilter filter = new Forstafilter();
+		FirstFilter filter = new FirstFilter();
 		FilterRegistration.Dynamic filterReg = servletContext.addFilter("firstFilter", filter);
 		filterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST, FORWARD), true, "/");
 	}
@@ -57,7 +57,7 @@ class FiltersConfig
 
 	private void initAndrafilter()
 	{
-		Andrafilter filter = new Andrafilter();
+		SecondFilter filter = new SecondFilter();
 		FilterRegistration.Dynamic filterReg = servletContext.addFilter("secondFilter", filter);
 		filterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST, FORWARD), true, "/");
 	}

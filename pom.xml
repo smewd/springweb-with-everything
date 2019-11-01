@@ -15,7 +15,7 @@
 
     <modules>
         <module>parentcontext</module>
-        <module>web1</module>
+        <module>web</module>
     </modules>
 
     <properties>

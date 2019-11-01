@@ -1,10 +1,10 @@
-package multicontexts.stripes;
+package everything.stripes;
 
 
 
 import lombok.Getter;
 import lombok.Setter;
-import multicontexts.service.ParentService;
+import everything.service.ParentService;
 import net.sourceforge.stripes.action.ActionBean;
 import net.sourceforge.stripes.action.ActionBeanContext;
 import net.sourceforge.stripes.action.DefaultHandler;

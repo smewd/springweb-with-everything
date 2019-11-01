@@ -1,4 +1,4 @@
-package multicontexts.filter;
+package everything.filter;
 
 
 
@@ -12,7 +12,7 @@ import java.io.IOException;
 
 
 
-public class Andrafilter implements Filter
+public class FirstFilter implements Filter
 {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
 			throws IOException, ServletException
@@ -21,7 +21,7 @@ public class Andrafilter implements Filter
 		filterChain.doFilter(request, capturingResponseWrapper);
 
 		String content = capturingResponseWrapper.getCaptureAsString();
-		String replacedContent = String.format("Andra - %s", content);
+		String replacedContent = String.format("Första - %s", content);
 
 		response.setContentLength(replacedContent.length());
 		response.getWriter().write(replacedContent);

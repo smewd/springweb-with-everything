@@ -1,4 +1,4 @@
-package multicontexts.filter;
+package everything.filter;
 
 
 
@@ -10,7 +10,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.StringWriter;
 
 
 
@@ -23,7 +22,7 @@ public class HtmlResponseWrapper extends HttpServletResponseWrapper
 
 
 
-	public HtmlResponseWrapper(HttpServletResponse response)
+	HtmlResponseWrapper(HttpServletResponse response)
 	{
 		super(response);
 		capture = new ByteArrayOutputStream(response.getBufferSize());
@@ -44,7 +43,7 @@ public class HtmlResponseWrapper extends HttpServletResponseWrapper
 			output = new ServletOutputStream()
 			{
 				@Override
-				public void write(int b) throws IOException
+				public void write(int b)
 				{
 					capture.write(b);
 				}
@@ -124,7 +123,7 @@ public class HtmlResponseWrapper extends HttpServletResponseWrapper
 
 
 
-	public byte[] getCaptureAsBytes() throws IOException
+	private byte[] getCaptureAsBytes() throws IOException
 	{
 		if (writer != null)
 		{
@@ -140,7 +139,7 @@ public class HtmlResponseWrapper extends HttpServletResponseWrapper
 
 
 
-	public String getCaptureAsString() throws IOException
+	String getCaptureAsString() throws IOException
 	{
 		return new String(getCaptureAsBytes(), getCharacterEncoding());
 	}
