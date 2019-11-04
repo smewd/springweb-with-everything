@@ -2,8 +2,11 @@ package everything.init;
 
 
 
+import everything.service.ParentService;
+import everything.struts.DummyAction;
 import everything.web.DummyController;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
@@ -63,6 +66,14 @@ public class WebAppInitializer implements WebApplicationInitializer
 	@Configuration
 	private static class SpringContextConfig
 	{
+		@Bean
+		public DummyAction dummyAction(ParentService parentService)
+		{
+			System.out.println("\n\n\n" + parentService + "\n\n\n");
+			DummyAction dummyAction = new DummyAction();
+			dummyAction.setParentService(parentService);
+			return dummyAction;
+		}
 	}
 
 
