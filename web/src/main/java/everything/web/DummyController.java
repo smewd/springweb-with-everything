@@ -28,6 +28,6 @@ public class DummyController
 	@ResponseBody
 	public String first()
 	{
-		return service.sayHello("first");
+		return service.sayHello("first (service: " + service + ")");
 	}
 }

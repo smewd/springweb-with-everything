@@ -18,8 +18,8 @@ import net.sourceforge.stripes.integration.spring.SpringBean;
 @UrlBinding("/stripes/dummy.action")
 public class DummyActionBean implements ActionBean
 {
-	@SpringBean
-	private ParentService parentService;
+	@SpringBean("parentService")
+	private ParentService service;
 
 	@Getter
 	@Setter
@@ -37,6 +37,6 @@ public class DummyActionBean implements ActionBean
 
 	public String getHello()
 	{
-		return parentService.sayHello("DummyStripes.getHello");
+		return service.sayHello("DummyStripes.getHello (service: " + service + ")");
 	}
 }

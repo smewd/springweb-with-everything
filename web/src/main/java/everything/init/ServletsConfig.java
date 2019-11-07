@@ -2,9 +2,10 @@ package everything.init;
 
 
 
-import lombok.RequiredArgsConstructor;
 import everything.servlet.DummyServlet;
+import lombok.RequiredArgsConstructor;
 import net.sourceforge.stripes.controller.DispatcherServlet;
+import org.apache.struts.action.ActionServlet;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
@@ -22,27 +23,38 @@ class ServletsConfig
 
 	void init()
 	{
+		initStrutsServlet();
 		initStripesServlet();
 		initDummyServlet();
 	}
 
 
 
+	private void initStrutsServlet()
+	{
+		ActionServlet servlet = new ActionServlet();
+		ServletRegistration.Dynamic servletReg = servletContext.addServlet("strutsActionServlet", servlet);
+		servletReg.setLoadOnStartup(1);
+		servletReg.setInitParameter("config", "/WEB-INF/struts-config.xml");
+		servletReg.addMapping("*.do");
+	}
+
+
+
 	private void initStripesServlet()
 	{
-		DispatcherServlet dispatcherServlet = new DispatcherServlet();
-		ServletRegistration.Dynamic stripesServletReg = servletContext.addServlet(STRIPES_DISPATCHER_SERVLETNAME,
-				dispatcherServlet);
-		stripesServletReg.setLoadOnStartup(1);
-		stripesServletReg.addMapping("*.action");
+		DispatcherServlet servlet = new DispatcherServlet();
+		ServletRegistration.Dynamic servletReg = servletContext.addServlet(STRIPES_DISPATCHER_SERVLETNAME, servlet);
+		servletReg.setLoadOnStartup(1);
+		servletReg.addMapping("*.action");
 	}
 
 
 
 	private void initDummyServlet()
 	{
-		DummyServlet dummyServlet = new DummyServlet();
-		ServletRegistration.Dynamic servletReg = servletContext.addServlet("dummyServlet", dummyServlet);
+		DummyServlet servlet = new DummyServlet();
+		ServletRegistration.Dynamic servletReg = servletContext.addServlet("dummyServlet", servlet);
 		servletReg.setLoadOnStartup(1);
 		servletReg.addMapping("/dummy/servlet");
 	}
