@@ -2,8 +2,8 @@ package everything.init;
 
 
 
-import everything.filter.FirstFilter;
-import everything.filter.SecondFilter;
+import everything.filter.LoggingFilter;
+import everything.filter.DecoratingFilter;
 import lombok.RequiredArgsConstructor;
 import net.sourceforge.stripes.controller.StripesFilter;
 
@@ -26,27 +26,29 @@ class FiltersConfig
 
 	void init()
 	{
-		initFirstFilter();
-		initSecondFilter();
+		initLoggingFilter();
+		initDecoratingFilter();
 		initStripesFilter();
 	}
 
 
 
-	private void initFirstFilter()
+	private void initLoggingFilter()
 	{
-		FirstFilter filter = new FirstFilter();
-		FilterRegistration.Dynamic filterReg = servletContext.addFilter("firstFilter", filter);
+		LoggingFilter filter = new LoggingFilter();
+		FilterRegistration.Dynamic filterReg = servletContext.addFilter(
+				filter.getClass().getName() + "Filter", filter);
 		filterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST), true, "/*");
 	}
 
 
 
-	private void initSecondFilter()
+	private void initDecoratingFilter()
 	{
-		SecondFilter filter = new SecondFilter();
-		FilterRegistration.Dynamic filterReg = servletContext.addFilter("secondFilter", filter);
-		filterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST), true, "/*");
+		DecoratingFilter filter = new DecoratingFilter();
+		FilterRegistration.Dynamic filterReg = servletContext.addFilter(
+				filter.getClass().getName() + "Filter", filter);
+		filterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST), true, "/*.action", "/*.do");
 	}
 
 
