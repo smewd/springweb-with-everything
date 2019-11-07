@@ -21,7 +21,7 @@ public class FirstFilter implements Filter
 		filterChain.doFilter(request, capturingResponseWrapper);
 
 		String content = capturingResponseWrapper.getCaptureAsString();
-		String replacedContent = String.format("Första - %s", content);
+		String replacedContent = String.format("First filter <blockquote>%s</blockquote> First filter", content);
 
 		response.setContentLength(replacedContent.length());
 		response.getWriter().write(replacedContent);
