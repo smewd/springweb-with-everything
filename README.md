@@ -1,4 +1,4 @@
-# Spring Web with everything
+# Spring Web with "everything"
 
 ## What is it?
 A Spring Web project with several included technologies; in fact, as many as possible.
@@ -22,11 +22,25 @@ start.
 * A Dockerfile with Tomcat
 
 ## What does it not include?
-Lots of things, naturally. And some things will never make it into the project.
-For instance, no unit tests or integration tests are included. Having integration 
-tests with some kind of mock service would be nice in the future, but may very well
-be an entire project in its own right.
+Lots of things, naturally. Obviously the name "everything" is a slight exaggeration. 
+And some things will never make it into the project. For instance, no unit tests or 
+integration tests are included. Having integration tests with some kind of mock 
+service would be nice in the future, but may very well be an entire project in its 
+own right.
 
 ## How to use it
 Clone it/fork it. Experiment. Add new things to it. If something could be interesting 
 to add, feel free to make a pull request.
+
+## How to try it out
+Run the following commands with the supplied Docker definition:
+```shell script
+$ docker build -t <tagname> .
+$ docker run -it --rm -p 8080:8080 <tagname>
+```
+
+Then access any of these URLs:
+* http://localhost:8080/servlet/dummy
+* http://localhost:8080/struts/dummy.do
+* http://localhost:8080/stripes/dummy.action
+* http://localhost:8080/webmvc/dummy

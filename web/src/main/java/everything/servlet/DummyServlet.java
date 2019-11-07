@@ -20,6 +20,6 @@ public class DummyServlet extends HttpServlet
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException
 	{
-		resp.getOutputStream().print("Dummy Servlet says hello!");
+		resp.getOutputStream().print("DummyServlet says hello!");
 	}
 }
