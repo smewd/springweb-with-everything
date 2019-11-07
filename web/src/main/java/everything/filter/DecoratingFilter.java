@@ -12,7 +12,7 @@ import java.io.IOException;
 
 
 
-public class FirstFilter implements Filter
+public class DecoratingFilter implements Filter
 {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
 			throws IOException, ServletException
@@ -21,7 +21,7 @@ public class FirstFilter implements Filter
 		filterChain.doFilter(request, capturingResponseWrapper);
 
 		String content = capturingResponseWrapper.getCaptureAsString();
-		String replacedContent = String.format("First filter <blockquote>%s</blockquote> First filter", content);
+		String replacedContent = String.format("Decorating filter: <blockquote>%s</blockquote>", content);
 
 		response.setContentLength(replacedContent.length());
 		response.getWriter().write(replacedContent);

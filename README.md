@@ -41,6 +41,12 @@ $ docker run -it --rm -p 8080:8080 <tagname>
 
 Then access any of these URLs:
 * http://localhost:8080/servlet/dummy
+    * Access to this view is logged with LoggingFilter
 * http://localhost:8080/struts/dummy.do
+    * Access to this view is logged with LoggingFilter
+    * Contents of this view are rewritten with DecoratingFilter 
 * http://localhost:8080/stripes/dummy.action
+    * Access to this view is logged with LoggingFilter
+    * Contents of this view are rewritten with DecoratingFilter 
 * http://localhost:8080/webmvc/dummy
+    * Access to this view is logged with LoggingFilter

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 
 
@@ -26,10 +27,20 @@ public class DummyController
 
 
 
-	@GetMapping(value = "/dummy", produces = "text/plain")
-	@ResponseBody
-	public String first()
+	@GetMapping("/dummy")
+	public String dummy()
 	{
-		return service.sayHello("Spring WebMVC DummyController");
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("dummyValue", service.sayHello("Spring WebMVC DummyController"));
+		return "dummy";
+	}
+
+
+
+	@GetMapping("/test")
+	@ResponseBody
+	public String test()
+	{
+		return "dummy";
 	}
 }
