@@ -39,7 +39,7 @@ class DispatcherServletConfig extends WebMvcConfigurerAdapter implements Applica
 	public void addResourceHandlers(ResourceHandlerRegistry registry)
 	{
 		registry.addResourceHandler("/css/**")
-				.addResourceLocations("/css/");
+				.addResourceLocations("classpath:/static/css/");
 	}
 
 

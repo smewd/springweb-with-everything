@@ -38,7 +38,7 @@ class FiltersConfig
 		LoggingFilter filter = new LoggingFilter();
 		FilterRegistration.Dynamic filterReg = servletContext.addFilter(
 				filter.getClass().getName() + "Filter", filter);
-		filterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST), true, "/*");
+		filterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST), true, "*");
 	}
 
 
@@ -48,7 +48,7 @@ class FiltersConfig
 		DecoratingFilter filter = new DecoratingFilter();
 		FilterRegistration.Dynamic filterReg = servletContext.addFilter(
 				filter.getClass().getName() + "Filter", filter);
-		filterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST), true, "/*.action", "/*.do");
+		filterReg.addMappingForUrlPatterns(EnumSet.of(REQUEST), true, "*.action", "*.do");
 	}
 
 
