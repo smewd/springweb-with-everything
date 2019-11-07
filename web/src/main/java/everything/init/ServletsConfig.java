@@ -56,6 +56,6 @@ class ServletsConfig
 		DummyServlet servlet = new DummyServlet();
 		ServletRegistration.Dynamic servletReg = servletContext.addServlet("dummyServlet", servlet);
 		servletReg.setLoadOnStartup(1);
-		servletReg.addMapping("/dummy/servlet");
+		servletReg.addMapping("/servlet/dummy");
 	}
 }

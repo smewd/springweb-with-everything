@@ -37,6 +37,6 @@ public class DummyActionBean implements ActionBean
 
 	public String getHello()
 	{
-		return service.sayHello("DummyStripes.getHello (service: " + service + ")");
+		return service.sayHello("Stripes DummyActionBean");
 	}
 }

@@ -7,7 +7,7 @@
 
         <Engine name="Catalina" defaultHost="localhost">
             <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true">
-                <Context path="/web" docBase="../deploy/web.war"/>
+                <Context path="/" docBase="../deploy/web.war"/>
             </Host>
         </Engine>
     </Service>

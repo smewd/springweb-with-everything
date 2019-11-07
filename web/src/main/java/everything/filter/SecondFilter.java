@@ -21,7 +21,7 @@ public class SecondFilter implements Filter
 		filterChain.doFilter(request, capturingResponseWrapper);
 
 		String content = capturingResponseWrapper.getCaptureAsString();
-		String replacedContent = String.format("Andra - %s", content);
+		String replacedContent = String.format("Second filter <blockquote>%s</blockquote> Second filter", content);
 
 		response.setContentLength(replacedContent.length());
 		response.getWriter().write(replacedContent);

@@ -20,7 +20,7 @@ import java.util.Map;
 public class DummyAction extends Action
 {
 	@Setter
-	private ParentService parentService;
+	private ParentService service;
 
 
 
@@ -33,7 +33,7 @@ public class DummyAction extends Action
 			HttpServletResponse response)
 	{
 		DummyForm strutsForm = (DummyForm)form;
-		strutsForm.setValue(parentService.sayHello("struts"));
+		strutsForm.setValue(service.sayHello("Struts DummyAction"));
 		return mapping.findForward("success");
 	}
 }

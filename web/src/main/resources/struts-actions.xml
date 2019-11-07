@@ -7,6 +7,6 @@
             http://www.springframework.org/schema/beans/spring-beans.xsd
 ">
     <bean name="/struts/dummy" class="everything.struts.DummyAction">
-        <property name="parentService" ref="parentService"/>
+        <property name="service" ref="parentService"/>
     </bean>
 </beans>

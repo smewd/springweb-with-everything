@@ -1,4 +1,4 @@
-package everything.web;
+package everything.webmvc;
 
 
 
@@ -6,11 +6,13 @@ import everything.service.ParentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
 
 @Controller
+@RequestMapping("/webmvc")
 public class DummyController
 {
 	private final ParentService service;
@@ -24,10 +26,10 @@ public class DummyController
 
 
 
-	@GetMapping(value = "/hello", produces = "text/plain")
+	@GetMapping(value = "/dummy", produces = "text/plain")
 	@ResponseBody
 	public String first()
 	{
-		return service.sayHello("first (service: " + service + ")");
+		return service.sayHello("Spring WebMVC DummyController");
 	}
 }
