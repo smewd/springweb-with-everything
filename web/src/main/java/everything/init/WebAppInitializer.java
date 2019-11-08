@@ -19,9 +19,6 @@ import static javax.servlet.DispatcherType.REQUEST;
 
 public class WebAppInitializer implements WebApplicationInitializer
 {
-
-
-
 	@Override
 	public void onStartup(ServletContext servletContext)
 	{
