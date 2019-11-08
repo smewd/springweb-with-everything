@@ -10,13 +10,13 @@ import org.apache.struts.action.ActionServlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
-import static everything.init.FiltersConfig.STRIPES_DISPATCHER_SERVLETNAME;
-
 
 
 @RequiredArgsConstructor
 class ServletsConfig
 {
+	static final String STRIPES_DISPATCHER_SERVLETNAME = "StripesDispatcher";
+
 	private final ServletContext servletContext;
 
 
