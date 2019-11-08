@@ -25,7 +25,6 @@ class ServletsConfig
 	{
 		initStrutsServlet();
 		initStripesServlet();
-		initDummyServlet();
 	}
 
 
@@ -47,15 +46,5 @@ class ServletsConfig
 		ServletRegistration.Dynamic servletReg = servletContext.addServlet(STRIPES_DISPATCHER_SERVLETNAME, servlet);
 		servletReg.setLoadOnStartup(1);
 		servletReg.addMapping("*.action");
-	}
-
-
-
-	private void initDummyServlet()
-	{
-		DummyServlet servlet = new DummyServlet();
-		ServletRegistration.Dynamic servletReg = servletContext.addServlet("dummyServlet", servlet);
-		servletReg.setLoadOnStartup(1);
-		servletReg.addMapping("/servlet/dummy");
 	}
 }
