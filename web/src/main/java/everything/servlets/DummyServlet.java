@@ -1,4 +1,4 @@
-package everything.servlet;
+package everything.servlets;
 
 
 

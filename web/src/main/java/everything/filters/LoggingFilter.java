@@ -1,4 +1,4 @@
-package everything.filter;
+package everything.filters;
 
 
 
