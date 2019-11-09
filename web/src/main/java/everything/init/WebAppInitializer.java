@@ -22,8 +22,6 @@ public class WebAppInitializer implements WebApplicationInitializer
 	@Override
 	public void onStartup(ServletContext servletContext)
 	{
-		servletContext.setInitParameter(ContextLoader.LOCATOR_FACTORY_KEY_PARAM, "ear.context");
-
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
 		rootContext.register(SpringContextConfig.class);
 
