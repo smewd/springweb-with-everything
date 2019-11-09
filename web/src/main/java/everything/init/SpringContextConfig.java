@@ -8,7 +8,10 @@ import org.springframework.context.annotation.ImportResource;
 
 
 @Configuration
-@ImportResource("classpath:struts-actions.xml")
+@ImportResource({
+		"classpath:services-context.xml",
+		"classpath:struts-actions.xml",
+})
 class SpringContextConfig
 {
 }

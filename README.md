@@ -11,7 +11,7 @@ technology B, instead of implementing them into the tech stack right at the
 start. A reference of sorts.
 
 ## What does it include?
-* Spring
+* Spring 5
 * Spring WebMVC
     * A controller with a requestmapping
     * Thymeleaf for view handling
@@ -24,10 +24,12 @@ start. A reference of sorts.
     * Servlet
     * Filter
     * An action bean with corresponding JSP file
-* A Dockerfile with Tomcat
+* A service bean in another Maven module for wiring into the web project
+* Maven as build tool
+* A Dockerfile with Tomcat for easy, portable testing
 
 ## What does it not include?
-Lots of things, naturally. Obviously the name "everything" is a slight exaggeration. 
+Lots of things, naturally. Obviously the name "everything" is a *slight* exaggeration. 
 And some things will never make it into the project. For instance, no unit tests or 
 integration tests are included. Having integration tests with some kind of mock 
 service would be nice in the future, but may very well be an entire project in its 
