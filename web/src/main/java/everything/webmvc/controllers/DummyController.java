@@ -1,4 +1,4 @@
-package everything.webmvc;
+package everything.webmvc.controllers;
 
 
 

@@ -2,7 +2,6 @@ package everything.init;
 
 
 
-import everything.servlet.DummyServlet;
 import lombok.RequiredArgsConstructor;
 import net.sourceforge.stripes.controller.DispatcherServlet;
 import org.apache.struts.action.ActionServlet;
