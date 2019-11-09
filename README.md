@@ -8,13 +8,18 @@ This is a project used as proof of concept, mainly for work. The idead is to
 integrate Spring Java config with technologies that are used in production. 
 This is a faster way to experiment with transitions from technology A to 
 technology B, instead of implementing them into the tech stack right at the 
-start.
+start. A reference of sorts.
 
 ## What does it include?
-* Spring Web
-* A Spring WebMVC Controller
+* Spring
+* Spring WebMVC
+    * A controller with a requestmapping
+    * Thymeleaf for view handling
+    * An interceptor for logging
 * A servlet
 * A couple of custom web filters
+    * A filter that logs for every request
+    * A "decorating" filter applied for URLs matching *.do and *.action
 * Stripes 
     * Servlet
     * Filter
