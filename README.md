@@ -30,3 +30,11 @@ be an entire project in its own right.
 ## How to use it
 Clone it/fork it. Experiment. Add new things to it. If something could be interesting 
 to add, feel free to make a pull request.
+
+## How to try it out
+Available calls:
+
+* Spring WebMVC controller: http://host/web/hello
+    * Filters are used in this call
+* HttpServlet: http://host/web/dummy/servlet
+* Stripes action: http://host/web/stripes/dummy.action

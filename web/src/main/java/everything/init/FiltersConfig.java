@@ -27,9 +27,9 @@ class FiltersConfig
 
 	void init()
 	{
-		initStripesFilter();
 		initForstafilter();
 		initAndrafilter();
+		initStripesFilter();
 	}
 
 
