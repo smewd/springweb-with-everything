@@ -10,5 +10,5 @@
         http://www.springframework.org/schema/context/spring-context.xsd
 ">
     <context:annotation-config />
-    <bean class="everything.config.ParentContextConfig"/>
+    <context:component-scan base-package="everything.service"/>
 </beans>
