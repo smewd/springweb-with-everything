@@ -20,11 +20,11 @@ start. A reference of sorts.
 * A couple of custom web filters
     * A filter that logs for every request
     * A "decorating" filter applied for URLs matching *.do and *.action
-* TBD: Stripes 
+* Stripes 
     * Servlet
     * Filter
     * An ActionBean with corresponding JSP file
-* TBD: Struts
+* Struts
     * Servlet
     * An Action with corresponding ActionForm and JSP file
 * A service bean in another Maven module for wiring into the web project
@@ -62,6 +62,6 @@ Then access any of these URLs:
 * http://localhost:8080/stripes/dummy.action
     * Access to this view is logged with LoggingFilter
     * Contents of this view are rewritten with DecoratingFilter 
-* TBD: http://localhost:8080/struts/dummy.do
+* http://localhost:8080/struts/dummy.do
     * Access to this view is logged with LoggingFilter
     * Contents of this view are rewritten with DecoratingFilter 
