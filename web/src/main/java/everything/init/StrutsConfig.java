@@ -21,10 +21,10 @@ public class StrutsConfig
 
 
 	@Bean
-	public ServletRegistrationBean<ActionServlet> strutsServletBean()
+	public ServletRegistrationBean strutsServletBean()
 	{
 		ActionServlet servlet = new ActionServlet();
-		ServletRegistrationBean<ActionServlet> bean = new ServletRegistrationBean<>(servlet);
+		ServletRegistrationBean bean = new ServletRegistrationBean(servlet);
 		bean.setLoadOnStartup(1);
 		bean.addInitParameter("config", "/WEB-INF/struts-config.xml");
 		bean.setName(STRUTS_ACTIONSERVLET);

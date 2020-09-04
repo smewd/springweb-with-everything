@@ -4,6 +4,7 @@ package everything.filters;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -30,5 +31,19 @@ public class DecoratingFilter implements Filter
 
 		response.setContentLength(replacedContent.length());
 		response.getWriter().write(replacedContent);
+	}
+
+
+
+	@Override
+	public void init(FilterConfig filterConfig)
+	{
+	}
+
+
+
+	@Override
+	public void destroy()
+	{
 	}
 }

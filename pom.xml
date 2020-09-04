@@ -27,10 +27,12 @@
         <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
 
         <lombok.version>1.18.4</lombok.version>
-        <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
+        <spring-boot.version>1.5.22.RELEASE</spring-boot.version>
         <spring-struts.version>3.2.18.RELEASE</spring-struts.version>
         <stripes.version>1.5.2</stripes.version>
         <struts.version>1.1</struts.version>
+
+        <spring.version>4.3.25.RELEASE</spring.version>
     </properties>
 
     <dependencyManagement>
@@ -55,6 +57,12 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-thymeleaf</artifactId>
                 <version>${spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
             </dependency>
 
             <dependency>

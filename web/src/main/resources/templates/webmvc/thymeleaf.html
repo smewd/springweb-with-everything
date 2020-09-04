@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<html>
 <head>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <title>dummy</title>
@@ -9,7 +8,7 @@
 <body>
 
 <div class="level1">
-    [[${hello}]]
+    <span th:text="${hello}"/>
 </div>
 
 </body>

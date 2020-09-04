@@ -19,10 +19,10 @@ public class StripesConfig
 
 
 	@Bean
-	public ServletRegistrationBean<DispatcherServlet> stripesServlet()
+	public ServletRegistrationBean stripesServlet()
 	{
 		DispatcherServlet servlet = new DispatcherServlet();
-		ServletRegistrationBean<DispatcherServlet> bean = new ServletRegistrationBean<>(servlet);
+		ServletRegistrationBean bean = new ServletRegistrationBean(servlet);
 		bean.setName(STRIPES_DISPATCHER_SERVLETNAME);
 		bean.addUrlMappings("*.action");
 		bean.setLoadOnStartup(1);
@@ -32,9 +32,9 @@ public class StripesConfig
 
 
 	@Bean
-	public FilterRegistrationBean<StripesFilter> stripesFilter()
+	public FilterRegistrationBean stripesFilter()
 	{
-		FilterRegistrationBean<StripesFilter> bean = new FilterRegistrationBean<>();
+		FilterRegistrationBean bean = new FilterRegistrationBean();
 		bean.setFilter(new StripesFilter());
 		bean.addInitParameter("Interceptor.Classes", net.sourceforge.stripes.integration.spring.SpringInterceptor.class.getCanonicalName());
 		bean.addInitParameter("ActionResolver.Packages", everything.stripes.PackageMarker.class.getPackage().getName());

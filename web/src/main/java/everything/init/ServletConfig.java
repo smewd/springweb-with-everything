@@ -23,8 +23,8 @@ public class ServletConfig
 
 
 	@Bean
-	public ServletRegistrationBean<DummyServlet> resetServletRegistrationBean()
+	public ServletRegistrationBean resetServletRegistrationBean()
 	{
-		return new ServletRegistrationBean<>(dummyServlet, "/servlet/dummy");
+		return new ServletRegistrationBean(dummyServlet, "/servlet/dummy");
 	}
 }

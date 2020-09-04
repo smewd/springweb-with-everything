@@ -4,6 +4,7 @@ package everything.filters;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -28,5 +29,19 @@ public class LoggingFilter implements Filter
 	{
 		LOGGER.info("doFilter");
 		filterChain.doFilter(request, response);
+	}
+
+
+
+	@Override
+	public void init(FilterConfig filterConfig)
+	{
+	}
+
+
+
+	@Override
+	public void destroy()
+	{
 	}
 }
