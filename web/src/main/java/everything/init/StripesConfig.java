@@ -11,18 +11,21 @@ import org.springframework.context.annotation.Configuration;
 
 
 
-//@Configuration
+@Configuration
 public class StripesConfig
 {
+	private static final String STRIPES_DISPATCHER_SERVLETNAME = "stripes-dispatcherservlet";
+
+
+
 	@Bean
 	public ServletRegistrationBean<DispatcherServlet> stripesServlet()
 	{
 		DispatcherServlet servlet = new DispatcherServlet();
-		ServletRegistrationBean<DispatcherServlet> bean
-				= new ServletRegistrationBean<>(servlet);
-		bean.setLoadOnStartup(1);
-		bean.addInitParameter("config", "/WEB-INF/struts-config.xml");
+		ServletRegistrationBean<DispatcherServlet> bean = new ServletRegistrationBean<>(servlet);
+		bean.setName(STRIPES_DISPATCHER_SERVLETNAME);
 		bean.addUrlMappings("*.action");
+		bean.setLoadOnStartup(1);
 		return bean;
 	}
 
@@ -35,6 +38,7 @@ public class StripesConfig
 		bean.setFilter(new StripesFilter());
 		bean.addInitParameter("Interceptor.Classes", net.sourceforge.stripes.integration.spring.SpringInterceptor.class.getCanonicalName());
 		bean.addInitParameter("ActionResolver.Packages", everything.stripes.PackageMarker.class.getPackage().getName());
+		bean.addServletNames(STRIPES_DISPATCHER_SERVLETNAME);
 		bean.addUrlPatterns("*.action");
 //		bean.addMappingForServletNames(EnumSet.of(REQUEST), true, STRIPES_DISPATCHER_SERVLETNAME);
 		return bean;
