@@ -59,9 +59,9 @@ Then access any of these URLs:
 * http://localhost:8080/servlet/dummy
     * Regular HTML output
     * Access to this view is logged with LoggingFilter
-* TBD: http://localhost:8080/struts/dummy.do
+* http://localhost:8080/stripes/dummy.action
     * Access to this view is logged with LoggingFilter
     * Contents of this view are rewritten with DecoratingFilter 
-* TBD: http://localhost:8080/stripes/dummy.action
+* TBD: http://localhost:8080/struts/dummy.do
     * Access to this view is logged with LoggingFilter
     * Contents of this view are rewritten with DecoratingFilter 
