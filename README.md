@@ -11,7 +11,7 @@ technology B, instead of implementing them into the tech stack right at the
 start. A reference of sorts.
 
 ## What does it include?
-* Spring 5
+* Spring Boot 2.3.3
 * Spring WebMVC
     * A controller with a requestmapping
     * Thymeleaf for view handling
@@ -20,10 +20,13 @@ start. A reference of sorts.
 * A couple of custom web filters
     * A filter that logs for every request
     * A "decorating" filter applied for URLs matching *.do and *.action
-* Stripes 
+* TBD: Stripes 
     * Servlet
     * Filter
-    * An action bean with corresponding JSP file
+    * An ActionBean with corresponding JSP file
+* TBD: Struts
+    * Servlet
+    * An Action with corresponding ActionForm and JSP file
 * A service bean in another Maven module for wiring into the web project
 * Maven as build tool
 * A Dockerfile with Tomcat for easy, portable testing
@@ -47,13 +50,18 @@ $ docker run -it --rm -p 8080:8080 <tagname>
 ```
 
 Then access any of these URLs:
+* http://localhost:8080/webmvc/helloworld
+    * JSON output
+    * Access to this request mapping is logged with LoggingFilter
+* http://localhost:8080/webmvc/thymeleaf
+    * Regular HTML output
+    * Access to this Thymeleaf view is logged with LoggingFilter
 * http://localhost:8080/servlet/dummy
+    * Regular HTML output
     * Access to this view is logged with LoggingFilter
-* http://localhost:8080/struts/dummy.do
-    * Access to this view is logged with LoggingFilter
-    * Contents of this view are rewritten with DecoratingFilter 
-* http://localhost:8080/stripes/dummy.action
+* TBD: http://localhost:8080/struts/dummy.do
     * Access to this view is logged with LoggingFilter
     * Contents of this view are rewritten with DecoratingFilter 
-* http://localhost:8080/webmvc/dummy
+* TBD: http://localhost:8080/stripes/dummy.action
     * Access to this view is logged with LoggingFilter
+    * Contents of this view are rewritten with DecoratingFilter 
