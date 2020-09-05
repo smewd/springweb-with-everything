@@ -7,7 +7,9 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {
+		org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration.class
+})
 public class Application extends SpringBootServletInitializer
 {
 }
