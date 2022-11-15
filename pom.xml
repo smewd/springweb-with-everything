@@ -34,7 +34,7 @@
         <spring.version>5.3.18</spring.version>
         <spring-struts.version>3.2.18.RELEASE</spring-struts.version>
         <stripes.version>1.5.2</stripes.version>
-        <struts.version>1.1</struts.version>
+        <struts.version>1.2.9</struts.version>
         <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
     </properties>
 
